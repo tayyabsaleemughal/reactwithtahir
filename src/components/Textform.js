@@ -45,7 +45,7 @@ export default function Textform(props) {
     setText(event.target.value);
   };
 
-  const [text, setText] = useState('Enter text here');
+  const [text, setText] = useState('');
   
   return (
     <div>
@@ -55,18 +55,18 @@ export default function Textform(props) {
           className="form-control" 
           value={text} 
           onChange={handleOnChange} 
-          style={{ backgroundColor: props.mode === 'dark' ? 'gray' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} 
+          style={{ backgroundColor: props.mode === 'dark' ? '#13466e' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} 
           id="myBox" 
           rows="8"
         ></textarea>
       </div>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleCopyText}>Copy Text</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Upper Case</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert to Lower Case</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleFirstCapitalize}>First Capitalize</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleReverseText}>Reverse Text</button>
-      <button className="btn btn-primary mx-1 my-1" onClick={handleRemoveExtraSpaces}>Remove Extra Spaces</button>
+      <button  disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopyText}>Copy Text</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Upper Case</button>
+      <button  disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert to Lower Case</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleFirstCapitalize}>First Capitalize</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleReverseText}>Reverse Text</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleRemoveExtraSpaces}>Remove Extra Spaces</button>
 
       <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
         <h1>Your text summary</h1>

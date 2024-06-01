@@ -1,7 +1,17 @@
-import React,{useState} from 'react'
+import React from 'react'
 
-export default function About() {
- const [mystyle,setmystyle]=useState({
+export default function About(props) {
+let mystyle={
+  color:props.mode==='dark'?'white':'#042743',
+  backgroundColor:props.mode==='dark'?'rgb(36 74 104)':'white'
+}
+
+
+
+
+/* 
+this is espacially for dark mood button in accordian 
+const [mystyle,setmystyle]=useState({
   color:'white',
   backgroundColor:'black'
  })
@@ -24,11 +34,12 @@ export default function About() {
     backgroundColor:'black'
   }); setBtnText("Enable white mode");
 }
- } 
+ } */
+
   return (
     
     <div className="container" style={mystyle}>
-       <h1 className="col-2">About Us</h1>
+       <h1 className="col-2"style={{color:props.mode==='dark'?'white':'#042743'}}>About Us</h1>
       <div className="accordion" id="accordionExample">
   <div className="accordion-item">
     <h2 className="accordion-header">
@@ -66,9 +77,9 @@ export default function About() {
       </div>
     </div>
   </div>
-</div>
+</div>{/*
 <div className="container my-3">
-<button type="button"onClick={togglestyle} class="btn btn-primary">{btntext}</button></div>
+  <button type="button"onClick={togglestyle} class="btn btn-primary">{btntext}</button></div>*/}
     </div>
   )
 }
